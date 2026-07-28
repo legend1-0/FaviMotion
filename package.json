@@ -1,6 +1,10 @@
 {
   "name": "favicon-motion",
   "version": "0.1.0",
+  "author": "Callacob",
+  "repository": "https://github.com/legend1-0/FaviMotion",
+  "bugs": "x.com/Call_acob",
+  "homepage": "",
   "description": "A lightweight, canvas-powered animated favicon library. Draw procedurally, or animate from frames, sprite sheets, video, Lottie, or dotLottie — no animated SVG, no bloated core.",
   "type": "module",
   "main": "./dist/favicon-motion.cjs.js",
