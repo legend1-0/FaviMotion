@@ -10,6 +10,7 @@ export default [
         OffscreenCanvas: "readonly",
         ImageData: "readonly",
         ImageBitmap: "readonly",
+        HTMLCanvasElement: "readonly",
         createImageBitmap: "readonly",
         requestAnimationFrame: "readonly",
         cancelAnimationFrame: "readonly",

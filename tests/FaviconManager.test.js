@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import { describe, it, expect, afterEach } from "vitest";
 import { FaviconManager } from "../src/exports/FaviconManager.js";
 
 describe("FaviconManager", () => {
