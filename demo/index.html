@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>favicon-motion — demo</title>
+    <link rel="icon" href="data:," />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b0d12;
+        --panel: #14171f;
+        --border: #262b36;
+        --text: #e7e9ee;
+        --muted: #8b93a3;
+        --accent: #6ee7b7;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+      header {
+        padding: 32px 24px 16px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      header h1 { font-size: 1.5rem; margin: 0 0 4px; }
+      header p { color: var(--muted); margin: 0; }
+      main {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 16px 24px 64px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .card h2 {
+        font-size: 0.95rem;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card p { color: var(--muted); font-size: 0.82rem; margin: 0; }
+      .card canvas {
+        image-rendering: pixelated;
+        width: 96px;
+        height: 96px;
+        background: #000;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        align-self: center;
+      }
+      .row { display: flex; gap: 6px; flex-wrap: wrap; }
+      button {
+        background: #1c2230;
+        border: 1px solid var(--border);
+        color: var(--text);
+        border-radius: 6px;
+        padding: 6px 10px;
+        font-size: 0.78rem;
+        cursor: pointer;
+      }
+      button:hover { border-color: var(--accent); color: var(--accent); }
+      .stats {
+        font-family: ui-monospace, monospace;
+        font-size: 0.75rem;
+        color: var(--muted);
+        white-space: pre;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>favicon-motion</h1>
+      <p>Canvas-powered animated favicons — no video, no animated SVG. Watch the browser tab.</p>
+    </header>
+    <main>
+      <section class="card" id="card-spinner">
+        <h2>Loading spinner (procedural)</h2>
+        <p>animate() callback drawing an arc each frame.</p>
+        <canvas width="64" height="64"></canvas>
+        <div class="row">
+          <button data-action="toggle">Pause</button>
+        </div>
+      </section>
+
+      <section class="card" id="card-pixel">
+        <h2>Pixel art walk cycle</h2>
+        <p>fromFrames() with hand-drawn ImageData frames.</p>
+        <canvas width="64" height="64"></canvas>
+        <div class="row">
+          <button data-action="toggle">Pause</button>
+          <button data-action="reverse">Reverse</button>
+        </div>
+      </section>
+
+      <section class="card" id="card-sprite">
+        <h2>Sprite sheet animation</h2>
+        <p>fromSpriteSheet() slicing a generated grid.</p>
+        <canvas width="64" height="64"></canvas>
+        <div class="row">
+          <button data-action="toggle">Pause</button>
+          <button data-action="fps-up">FPS +</button>
+          <button data-action="fps-down">FPS −</button>
+        </div>
+      </section>
+
+      <section class="card" id="card-clock">
+        <h2>Live clock favicon</h2>
+        <p>Procedural face redrawn every second.</p>
+        <canvas width="64" height="64"></canvas>
+      </section>
+
+      <section class="card" id="card-game">
+        <h2>Game / notification badge</h2>
+        <p>Procedural counter badge, click to increment.</p>
+        <canvas width="64" height="64"></canvas>
+        <div class="row">
+          <button data-action="increment">+1 notification</button>
+        </div>
+      </section>
+
+      <section class="card" id="card-effects">
+        <h2>Effects pipeline</h2>
+        <p>pulse + glow composed on top of a static mark.</p>
+        <canvas width="64" height="64"></canvas>
+        <div class="row">
+          <button data-action="pulse">Pulse</button>
+          <button data-action="glow">+ Glow</button>
+          <button data-action="clear">Clear effects</button>
+        </div>
+      </section>
+
+      <section class="card" id="card-perf">
+        <h2>Performance stats</h2>
+        <p>Frame commits vs. skipped-duplicate frames.</p>
+        <div class="stats" id="perf-output">waiting…</div>
+      </section>
+    </main>
+    <script type="module" src="./demo.js"></script>
+  </body>
+</html>
